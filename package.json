@@ -1,0 +1,22 @@
+{
+  "name": "adventures",
+  "version": "1.0.0",
+  "description": "Website for active travelers who want to find trails or adventures close to their location.",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonschill/adventures.git"
+  },
+  "author": "Brandon Schill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonschill/adventures/issues"
+  },
+  "homepage": "https://github.com/brandonschill/adventures#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
