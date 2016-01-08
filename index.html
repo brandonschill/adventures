@@ -4,6 +4,7 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.0.5/foundation.min.css">
   <link href="default.css" type="text/css" rel="stylesheet">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
@@ -17,9 +18,6 @@
     <div class="medium-7 large-6 columns">
       <h1>Find Today's Adventure</h1>
       <p class="subheader">"Twenty years from now you will be more disappointed by the things you didn't do than by the ones you did do. So throw off the bowlines, sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover."   Mark Twain</p>
-    </div>
-    <div id="map">
-      <!-- <img src="images/boots.jpg" alt="mountains"> -->
     </div>
     <div class="medium-5 large-3 columns">
       <div class="callout secondary">
@@ -38,6 +36,10 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div id="map">
+    </div>
+  </div>
   <div class="row column">
     <hr>
   </div>
@@ -49,7 +51,7 @@
       <div class="column">
         <div class="callout">
           <p>A</p>
-          <p><img src="images/mtns.jpg" alt="image of a planet called Pegasi B"></p>
+          <p><img src="images/mtns.jpg" class="img-responsive" alt="image of a planet called Pegasi B"></p>
           <p class="lead">Hike Trail</p>
           <p class="subheader">This trail features...</p>
         </div>
@@ -57,7 +59,7 @@
       <div class="column">
         <div class="callout">
           <p>B</p>
-          <p><img src="images/mtns.jpg" alt="image of a planet called Pegasi B"></p>
+          <p><img src="images/forestofillusion.jpg" class="img-responsive" alt="image of a planet called Pegasi B"></p>
           <p class="lead">Hike Trail</p>
           <p class="subheader">This trail features...</p>
         </div>
@@ -65,7 +67,7 @@
       <div class="column">
         <div class="callout">
           <p>C</p>
-          <p><img src="images/mtns.jpg" alt="image of a planet called Pegasi B"></p>
+          <p><img src="images/glacierhike.jpg" class="img-responsive" alt="image of a planet called Pegasi B"></p>
           <p class="lead">Hike Trail</p>
           <p class="subheader">This trail features...</p>
         </div>
@@ -73,7 +75,7 @@
       <div class="column">
         <div class="callout">
           <p>D</p>
-          <p><img src="images/mtns.jpg" alt="image of a planet called Pegasi B"></p>
+          <p><img src="images/junglecliffdive.jpg" class="img-responsive" alt="image of a planet called Pegasi B"></p>
           <p class="lead">Hike Trail</p>
           <p class="subheader">This trail features...</p>
         </div>
@@ -81,7 +83,7 @@
       <div class="column">
         <div class="callout">
           <p>E</p>
-          <p><img src="images/mtns.jpg" alt="image of a planet called Pegasi B"></p>
+          <p><img src="images/logcrossing.jpg" class="img-responsive" alt="image of a planet called Pegasi B"></p>
           <p class="lead">Hike Trail</p>
           <p class="subheader">This trail features...</p>
         </div>
@@ -89,7 +91,7 @@
       <div class="column">
         <div class="callout">
           <p>F</p>
-          <p><img src="images/mtns.jpg" alt="image of a planet called Pegasi B"></p>
+          <p><img src="images/rivercross.jpg" class="img-responsive" alt="image of a planet called Pegasi B"></p>
           <p class="lead">Hike Trail</p>
           <p class="subheader">This trail features...</p>
         </div>
@@ -119,7 +121,8 @@
       </div>
     </div>
   </footer>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3YiRjIrdjUWVPOYzTq3PhC-_3lLPf2Y8&signed_in=true&libraries=places&callback=initMap" async defer></script>
+  <script src="map.js" type="text/javascript"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNR23T6jeO0hXU_Xd0wspLkazWIIxLuyY&signed_in=true&libraries=places&callback=initMap" async defer></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/foundation/6.0.5/foundation.min.js"></script>
 </body>

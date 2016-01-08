@@ -1,30 +1,21 @@
-// var mapOptions = {
-// 	center: new google.maps.LatLng(37.7831, -122.4039),
-// 	zoom: 12,
-// 	mapTypeId: google.maps.MapTypeId.ROADMAP
-// };
-
-// new google.maps.Map(document.getElementById('map'), mapOptions);
-
-
 var map;
 var infowindow;
 
 function initMap() {
-  var pyrmont = {lat: -33.867, lng: 151.195};
+  var yosemite = {lat: 37.8499, lng: -119.5677};
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: pyrmont,
-    zoom: 15
+    center: yosemite,
+    zoom: 10
   });
 
   infowindow = new google.maps.InfoWindow();
 
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
-    location: pyrmont,
-    radius: 500,
-    types: ['store']
+    location: yosemite,
+    radius: 750000,
+    types: ['hiking']
   }, callback);
 }
 
