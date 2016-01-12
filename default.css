@@ -7,7 +7,7 @@ div.top-bar {
 	height: 300px;
 	width: 1200px;
 	border: inset;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 }
 
 html, body {
@@ -16,3 +16,7 @@ html, body {
 	padding: 0;
 }
 
+#find {
+	height: 130px;
+	font-size: 16px;
+}
