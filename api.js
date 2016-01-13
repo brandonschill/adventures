@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-router.get('/', function(req, res) {	
-	request('http://www.everytrail.com/api?key=5f3e3655287f314cc8fd71b912e1e3d2&callback=initMap', function(error, response, body) {
-		if (!error && response.statusCode == 200) {
-			console.log(body);
-			res.send(body);
-		}
-	});
-});
+// router.get('/', function(req, res) {	
+// 	request('http://www.everytrail.com/api?key=5f3e3655287f314cc8fd71b912e1e3d2&callback=initMap', function(error, response, body) {
+// 		if (!error && response.statusCode == 200) {
+// 			console.log(body);
+// 			res.send(body);
+// 		}
+// 	});
+// });
 //EveryTrail api
 //Key: 5f3e3655287f314cc8fd71b912e1e3d2	
 //Secret: f301d342987e16bf	
