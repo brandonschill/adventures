@@ -13,27 +13,40 @@ function initMap() {
 
 	var completed = new google.maps.places.SearchBox(input, null);
 
+	var request = {
+		location: map.getCenter(),
+		radius: '5000',
+	}
+
 	completed.addListener('places_changed', function() {
 		var myPlaces = completed.getPlaces();
 		for(var i = 0; i < myPlaces.length; i++) {
 
-			//Create a new div
-			var newDiv = document.createElement('div');
-			newDiv.className = 'hikes';
+			if(myPlaces[i].photos) {
 
-			//Create a new text node
-			var newHike = document.createTextNode(myPlaces[i].photos.length);
+				//Create a new div
+				var newDiv = document.createElement('div');
+				newDiv.className = 'hikes';
 
-			//Attach the text node to the div
-			newDiv.appendChild(newHike);
+				var newImage = document.createElement('img');
 
-			//Update the text using the object in myPlaces
-			var places = document.getElementsByClassName('hikeresults');
+				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
 
-			//Attach div to the dom
-			places[0].appendChild(newDiv);
-			console.log(myPlaces)
 
+				//Create a new text node
+				var newHike = document.createTextNode(myPlaces[i].photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
+
+				//Attach the text node to the div
+				newDiv.appendChild(newHike);
+
+				//Update the text using the object in myPlaces
+				var places = document.getElementsByClassName('hikeresults');
+
+				//Attach div to the dom
+				places[0].appendChild(newDiv);
+				places[0].appendChild(newImage);
+				console.log(myPlaces)
+			};
 		};
 	});
 };
