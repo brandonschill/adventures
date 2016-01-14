@@ -26,18 +26,16 @@ function initMap() {
 
 				//Create a new div
 				var newDiv = document.createElement('div');
-				newDiv.className = 'hikes';
+				// newDiv.className = 'hikes';
 
 				var newImage = document.createElement('img');
 
 				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
 
-
 				//Create a new text node
-				var newHike = document.createTextNode(myPlaces[i].photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
+				var newHikeName = document.createTextNode(myPlaces[i].name);
 
-				//Attach the text node to the div
-				newDiv.appendChild(newHike);
+				newDiv.appendChild(newHikeName);
 
 				//Update the text using the object in myPlaces
 				var places = document.getElementsByClassName('hikeresults');
