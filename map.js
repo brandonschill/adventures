@@ -13,10 +13,10 @@ function initMap() {
 
 	var completed = new google.maps.places.SearchBox(input, null);
 
-	var request = {
-		location: map.getCenter(),
-		radius: '5000',
-	}
+	// var request = {
+	// 	location: map.getCenter(),
+	// 	radius: '5000',
+	// }
 
 	completed.addListener('places_changed', function() {
 		var myPlaces = completed.getPlaces();
@@ -26,13 +26,15 @@ function initMap() {
 
 				//Create a new div
 				var newDiv = document.createElement('div');
-				// newDiv.className = 'hikes';
+				newDiv.className = 'hikes';
 
 				var newImage = document.createElement('img');
 
-				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 100, maxHeight: 100}));
+				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 300, maxHeight: 300}));
+				newImage.className = 'hikephoto';
 
 				//Create a new text node
+
 				var newHikeName = document.createTextNode(myPlaces[i].name);
 
 				newDiv.appendChild(newHikeName);
