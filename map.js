@@ -1,53 +1,59 @@
-// This sample uses the Place Autocomplete widget to allow the user to search
-// for and select a place. The sample then displays an info window containing
-// the place ID and other information about the place that the user has
-// selected.
+  //Initialize map
+  function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 37.8499, lng: -119.5677},
+    zoom: 12
+  });
 
-function initMap() {
-	var map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 37.8499, lng: -119.5677},
-		zoom: 12
-	});
+  //Grab search box and store in new var
+  var input = document.getElementById('pac-input');
 
-	var input = document.getElementById('pac-input');
+  //Store search results in new var
+  var completed = new google.maps.places.SearchBox(input, null);
 
-	var completed = new google.maps.places.SearchBox(input, null);
+  //
+  completed.addListener('places_changed', function() {
+    var myPlaces = completed.getPlaces();
+    for(var i = 0; i < myPlaces.length; i++) {
 
-	// var request = {
-	// 	location: map.getCenter(),
-	// 	radius: '5000',
-	// }
+      //Ensure returned objects have photos
+      if(myPlaces[i].photos) {
 
-	completed.addListener('places_changed', function() {
-		var myPlaces = completed.getPlaces();
-		for(var i = 0; i < myPlaces.length; i++) {
+        //Create a new div and assign it a new class
+ 
+        var innerDiv = document.createElement('div');
+        innerDiv.setAttribute('class', 'column');
 
-			if(myPlaces[i].photos) {
+        var calloutDiv = document.createElement('div');
+        calloutDiv.setAttribute('class', 'callout');
 
-				//Create a new div
-				var newDiv = document.createElement('div');
-				newDiv.className = 'hikes';
+        var pPhoto = document.createElement('p');
 
-				var newImage = document.createElement('img');
+        var pName = document.createElement('p');
 
-				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 333, maxHeight: 333}));
-				newImage.className = 'hikephoto';
+        //Create new image element, assign it a source, and assign it a new class
+        var newImage = document.createElement('img');
+        newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 333, maxHeight: 333}));
+        newImage.className = 'hikephoto';
 
-				//Create a new text node
+        //Create a new text node
+        var newHikeName = document.createTextNode(myPlaces[i].name);
 
-				var newHikeName = document.createTextNode(myPlaces[i].name);
+        //Attach newHikeName(child) to newDiv(parent)
+        innerDiv.appendChild(newHikeName);
 
-				newDiv.appendChild(newHikeName);
+        //Update the text using the object in myPlaces
+        var places = document.getElementsByClassName('hikeresults');
 
-				//Update the text using the object in myPlaces
-				var places = document.getElementsByClassName('hikeresults');
-
-				//Attach div to the dom
-				places[0].appendChild(newDiv);
-				places[0].appendChild(newImage);
-				console.log(myPlaces)
-			};
-		};
-	});
-};
-
+        //Attach div to the dom
+        places[0].appendChild(innerDiv);
+        innerDiv.appendChild(calloutDiv);
+        calloutDiv.appendChild(pPhoto);
+        calloutDiv.appendChild(pName);
+        pPhoto.appendChild(newImage);
+        pName.appendChild(newHikeName);
+        console.log(myPlaces);
+      };
+    };
+  });
+  };
