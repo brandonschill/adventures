@@ -20,7 +20,10 @@
       if(myPlaces[i].photos) {
 
         //Create a new div and assign it a new class
- 
+
+        var outerDiv = document.createElement('div');
+        outerDiv.setAttribute('class', 'row small-up-1 medium-up-2 large-up-3');
+
         var innerDiv = document.createElement('div');
         innerDiv.setAttribute('class', 'column');
 
@@ -46,7 +49,8 @@
         var places = document.getElementsByClassName('hikeresults');
 
         //Attach div to the dom
-        places[0].appendChild(innerDiv);
+        places[0].appendChild(outerDiv);
+        outerDiv.appendChild(innerDiv)
         innerDiv.appendChild(calloutDiv);
         calloutDiv.appendChild(pPhoto);
         calloutDiv.appendChild(pName);
