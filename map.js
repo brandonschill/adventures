@@ -30,7 +30,7 @@ function initMap() {
 
 				var newImage = document.createElement('img');
 
-				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 300, maxHeight: 300}));
+				newImage.setAttribute('src', myPlaces[i].photos[0].getUrl({maxWidth: 333, maxHeight: 333}));
 				newImage.className = 'hikephoto';
 
 				//Create a new text node
