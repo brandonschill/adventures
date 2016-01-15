@@ -11,9 +11,12 @@
   //Store search results in new var
   var completed = new google.maps.places.SearchBox(input, null);
 
+
   //
   completed.addListener('places_changed', function() {
     var myPlaces = completed.getPlaces();
+    var outerDiv = document.createElement('div');
+    outerDiv.setAttribute('class', 'row small-up-1 medium-up-2 large-up-3');
     for(var i = 0; i < myPlaces.length; i++) {
 
       //Ensure returned objects have photos
@@ -21,8 +24,7 @@
 
         //Create a new div and assign it a new class
 
-        var outerDiv = document.createElement('div');
-        outerDiv.setAttribute('class', 'row small-up-1 medium-up-2 large-up-3');
+        
 
         var innerDiv = document.createElement('div');
         innerDiv.setAttribute('class', 'column');
