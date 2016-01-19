@@ -13,4 +13,4 @@ app.get('/', function(req, res) {
 });
 
 app.listen(1337);
-console.log('1337 is the magic port!');
+console.log('1337 is active.');
