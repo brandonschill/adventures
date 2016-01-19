@@ -5,12 +5,6 @@ function initMap() {
     zoom: 12
   });
 
-  // var request = {
-  //   location: {lat: 37.8499, lng: -119.5677},
-  //   radius: '2000',
-  //   types: ['hiking_areas']
-  // };
-
   //Grab search box and store in new var
   var input = document.getElementById('pac-input');
 
