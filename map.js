@@ -5,11 +5,11 @@ function initMap() {
     zoom: 12
   });
 
-  var request = {
-    location: {lat: 37.8499, lng: -119.5677},
-    radius: '2000',
-    types: ['hiking_areas']
-  };
+  // var request = {
+  //   location: {lat: 37.8499, lng: -119.5677},
+  //   radius: '2000',
+  //   types: ['hiking_areas']
+  // };
 
   //Grab search box and store in new var
   var input = document.getElementById('pac-input');
@@ -22,10 +22,45 @@ function initMap() {
     completed.setBounds(map.getBounds());
   });
 
+  var markers = [];
+
   completed.addListener('places_changed', function() {
     var myPlaces = completed.getPlaces();
     var outerCard = document.createElement('div');
     outerCard.setAttribute('class', 'row small-up-1 medium-up-2 large-up-3');
+
+    //Clear out old markers
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    //For get place, get the icon, name and location
+    var bounds = new google.maps.LatLngBounds();
+    myPlaces.forEach(function(myPlaces) {
+      var icon = {
+        url: myPlaces.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      //Create a marker for each place
+      markers.push(new google.maps.Marker({
+        map: map, 
+        icon: icon, 
+        title: myPlaces.name, 
+        position: myPlaces.geometry.location
+      }));
+
+      if (myPlaces.geometry.viewport) {
+        bounds.union(myPlaces.geometry.viewport);
+      } else {
+        bounds.extend(myPlaces.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
 
     for(var i = 0; i < myPlaces.length; i++) {
 
