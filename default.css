@@ -7,7 +7,6 @@ div.top-bar {
 	height: 300px;
 	width: 1200px;
 	border: inset;
-	/*border-radius: 10px;*/
 }
 
 html, body {
@@ -16,20 +15,16 @@ html, body {
 	padding: 0;
 }
 
-/*.hikes {
-	font-family: helvetica;
-	font-size: 22px;
-	padding-left: 50px;
-	padding-top: 25px;
-	padding-bottom: 15px;
-	margin-bottom: 15px;
-	height: 50px;
-}*/
-/*
-.hikephoto {
-	padding-left: 85px;
-}*/
-
 .adventures {
 	padding-top: 45px;
+}
+
+.autosize {
+	height: 250px;
+	text-align: center;
+	overflow: scroll;
+}
+
+.address {
+	font-size: 16px;
 }

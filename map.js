@@ -17,6 +17,8 @@ function initMap() {
   });
 
   var markers = [];
+  var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var labelIndex = 0;
 
   completed.addListener('places_changed', function() {
     var myPlaces = completed.getPlaces();
@@ -43,7 +45,7 @@ function initMap() {
       //Create a marker for each place
       markers.push(new google.maps.Marker({
         map: map, 
-        icon: icon, 
+        label: labels[labelIndex++ % labels.length],
         title: myPlaces.name, 
         position: myPlaces.geometry.location
       }));
@@ -56,7 +58,7 @@ function initMap() {
     });
     map.fitBounds(bounds);
 
-    for(var i = 0; i < myPlaces.length; i++) {
+    for(var i = 0; i < 10; i++) {
 
       //Ensure returned objects have photos
       if(myPlaces[i].photos) {
@@ -69,14 +71,12 @@ function initMap() {
         calloutDiv.setAttribute('class', 'callout');
 
         var hikePhoto = document.createElement('p');
+        hikePhoto.setAttribute('class', 'autosize');
 
-        var hikeName = document.createElement('p');
+        var hikeName = document.createElement('h4');
 
         //Create variable to hold address for geocoding
         var hikeAddress = document.createTextNode(myPlaces[i].formatted_address);
-        console.log(hikeAddress);
-
-
 
         //Create new image element, assign it a source, and assign it a new class
         var newImage = document.createElement('img');
@@ -98,6 +98,7 @@ function initMap() {
         innerCard.appendChild(calloutDiv);
         calloutDiv.appendChild(hikePhoto);
         calloutDiv.appendChild(hikeName);
+        calloutDiv.appendChild(hikeAddress);
         hikePhoto.appendChild(newImage);
         hikeName.appendChild(newHikeName);
         console.log(myPlaces);
