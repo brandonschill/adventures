@@ -7,7 +7,7 @@ function initMap() {
 
   //Grab search box and store in new var
   var input = document.getElementById('pac-input');
-
+ 
   //Store search results in new var
   var completed = new google.maps.places.SearchBox(input, null);
 
@@ -76,7 +76,7 @@ function initMap() {
         var hikeName = document.createElement('h4');
 
         //Create variable to hold address for geocoding
-        var hikeAddress = document.createTextNode(myPlaces[i].formatted_address);
+        var hikeRating = document.createTextNode('Hike Rating:  ' + myPlaces[i].rating);
 
         //Create new image element, assign it a source, and assign it a new class
         var newImage = document.createElement('img');
@@ -98,7 +98,7 @@ function initMap() {
         innerCard.appendChild(calloutDiv);
         calloutDiv.appendChild(hikePhoto);
         calloutDiv.appendChild(hikeName);
-        calloutDiv.appendChild(hikeAddress);
+        calloutDiv.appendChild(hikeRating);
         hikePhoto.appendChild(newImage);
         hikeName.appendChild(newHikeName);
         console.log(myPlaces);
